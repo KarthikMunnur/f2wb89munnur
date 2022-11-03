@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  - let results=[{icecream_Name:"Cone",icecream_flavour:"Coco",icecream_price:"20"} , {icecream_Name:"Bar",icecream_flavour:"Fruit Mix",icecream_price:"18"} , {icecream_Name:"Dondurma",icecream_flavour:"Nuts",icecream_price:"21"}]
+  div(class="container-fluid") 
+   div(class="row")
+    each icecream,index in results
+        div(class="col-sm-2" onclick=`buy(${index})`) icecream_Name: #{icecream.icecream_Name}, icecream_flavour: #{icecream.icecream_flavour}, icecream_price: #{icecream.icecream_price} 
+
+
+    script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }
+
+     
